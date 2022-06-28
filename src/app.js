@@ -21,7 +21,7 @@ const signIn = () => axios({
 const checkIn = async (count = 0) => {
     try {
         //随机延迟若干秒
-        await new Promise(res => setTimeout(() => res(),Math.ceil(Math.random() * 10) * 1000))
+        await new Promise(res => setTimeout(() => res(),Math.ceil(Math.random() * 5) * 1000))
         //开始签到
         const { data:{ message } } = await signIn()
         if(message === 'OK')tool.log('签到成功')
