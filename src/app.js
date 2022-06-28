@@ -20,6 +20,9 @@ const signIn = () => axios({
 //签到功能
 const checkIn = async (count = 0) => {
     try {
+        //随机延迟若干秒
+        await new Promise(res => setTimeout(() => res(),Math.ceil(Math.random() * 10) * 1000))
+        //开始签到
         const { data:{ message } } = await signIn()
         if(message === 'OK')tool.log('签到成功')
         else tool.log(message)
@@ -34,7 +37,7 @@ const checkIn = async (count = 0) => {
     }
 }
 //定时签到
-const job = new CronJob(`${Math.floor(Math.random() * 59)} 0 0 * * *`,checkIn)
+const job = new CronJob('30 0 0 * * *',checkIn)
 //创建日志目录
 tool.mkLog()
 //开始作业
