@@ -1,9 +1,8 @@
 const axios = require("axios");
-const fs = require("fs");
-const path = require("path");
 const CronJob = require("cron").CronJob;
 const tool = require("./util/tool");
 const { origin, url, cookie, act_id } = require("./config/config.json");
+const cookieObj = tool.c2o(cookie);
 const headers = {
   cookie,
   origin,
@@ -12,13 +11,14 @@ const headers = {
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.0.0 Safari/537.36",
 };
 //发送请求
-const signIn = () =>
+const signIn = () => 
   axios({
     method: "post",
     headers,
-    url: `${url}?lang=${cookie.mi18nLang}`,
+    url: `${url}?lang=${cookieObj.mi18nLang ?? 'zh-cn'}`,
     data: { act_id },
   });
+  
 //签到功能
 const checkIn = async (count = 0) => {
   try {
