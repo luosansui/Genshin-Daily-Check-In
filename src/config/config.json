@@ -2,12 +2,5 @@
     "origin": "https://act.hoyolab.com",
     "url":"https://sg-hk4e-api.hoyolab.com/event/sol/sign",
     "act_id":"e202102251931481",
-    "cookie":{
-        "mi18nLang":"zh-cn",
-        "_MHYUUID":"#######",
-        "ltoken":"#######",
-        "ltuid":"#######",
-        "cookie_token":"#######",
-        "account_id":"#######"
-    }
+    "cookie":"####"
 }
